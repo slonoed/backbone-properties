@@ -35,4 +35,7 @@ albert.name(); // return 'Ivan'
 // you can use standart model.set options
 albert.age({silent: true}); // didnt raise change event
 ```
-
+To prevent ovveriding model field, exception will be throw
+``` javascript
+albert.createProperty('get'); // throw error!
+``` 
