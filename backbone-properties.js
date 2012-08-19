@@ -1,3 +1,6 @@
+// https://github.com/SLonoed/backbone-properties
+// tested with backbone 0.9.2
+
 (function(Backbone){
 
 	Backbone.Model.prototype.createProperty = function(props) {
@@ -6,6 +9,11 @@
 		}
 
 		for (var i = 0; i < props.length; i++) {
+			var prop = props[i];
+
+			if (!_.isUndefined(this[prop])) {
+				throw 'Object allready has field ' + prop;
+			}
 
 			this[props[i]] = (function(prop) {
 				return function() {
@@ -16,7 +24,7 @@
 						return this.set(prop, arguments[0], arguments[1]);
 					}
 				};}
-			)(props[i]);
+			)(prop);
 		}
 
 	};

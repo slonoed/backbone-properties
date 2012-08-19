@@ -19,7 +19,7 @@ var User = Backbone.Model.extend({
 
 
 
-describe("all", function() {
+describe("Main: ", function() {
 	var albert = new User({name:'Albert'});
 
 	it("model has .createProperty", function() {
@@ -45,10 +45,10 @@ describe("all", function() {
 	});
 
 
-	it("use .createProperty([])", function() {
-
-		expect(albert.age()).toBe(20);
-		expect(albert.phone()).toBe('555-55-55');
-		expect(albert.city()).toBe('Tokyo');
+	it("thorow on coincident", function() {
+		var foo = function() {
+			albert.createProperty('initialize')
+		};
+		expect(foo).toThrow();
 	});
 });
