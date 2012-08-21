@@ -3,8 +3,13 @@ var User = Backbone.Model.extend({
 		name: 'noname',
 		age: 20,
 		phone: '555-55-55',
-		city: 'Tokyo'
+		city: 'Tokyo',
+        sex: 'male'
 	},
+
+    properties: [
+        'sex'
+    ],
 
 	initialize: function() {
 		this.createProperty('name');
@@ -29,6 +34,14 @@ describe("Main: ", function() {
 	it("use get: model.property()", function() {
 		expect(albert.name()).toBe('Albert');
 	});
+
+    it("use createProperty([])", function() {
+        expect(albert.age()).toBe(20);
+    });
+
+    it("use properties:[]", function() {
+        expect(albert.sex()).toBe('male');
+    });
 
 	it("use set: model.property(value)", function() {
 		albert.name('Ivan');

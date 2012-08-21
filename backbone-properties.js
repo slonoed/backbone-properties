@@ -28,4 +28,13 @@
 		}
 
 	};
+    var OriginalModel = Backbone.Model;
+    Backbone.Model = function (attributes, options) {
+                OriginalModel.apply(this, arguments);
+                if (_.isArray(this.properties)) {
+                    this.createProperty(this.properties);
+                }
+    };
+    _.extend(Backbone.Model, OriginalModel);
+    Backbone.Model.prototype = OriginalModel.prototype;
 })(Backbone);
