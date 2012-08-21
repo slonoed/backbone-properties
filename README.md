@@ -5,27 +5,23 @@ This simple plugin implement property functionality to Backbone.Model
 
 Usage:
 ``` javascript
+// you can use initial option properties...
 var User = Backbone.Model.extend({
-  initialize: function() {
-    // create one property
-    this.createProperty('name');
-    
-    // or use array to create several
-    this.createProperty([
+  properties: [
       'age',
       'phone',
       'city'
-    ]);
-  }
+    ];
 });
 
+// ... or use createProperty method
 var albert = new User({
   name: 'Albert',
   age: 20,
   phone: '555-55-55',
   city: 'Tokyo'
 });
-
+albert.createProperty('name'); // array of strings allows too
 
 albert.name(); // return 'Albert'
 
