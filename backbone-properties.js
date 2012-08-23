@@ -1,3 +1,4 @@
+// 0.1
 // https://github.com/SLonoed/backbone-properties
 // tested with backbone 0.9.2
 
